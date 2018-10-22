@@ -1,0 +1,41 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+"""
+Created on Fri Oct 12 10:43:58 2018
+
+@author: charrington
+"""
+import pandas
+iris=pandas.read_csv("iris.csv")
+
+#return odd rows for any pandas dataframe
+def oddselection(x):
+    return (x[1: :2])
+
+oddselection(iris)
+
+#return the number of observations for a given species
+def speciesnumber(filename,column,speciesname):
+    species=filename[filename[column]==speciesname]
+    value=len(species)
+    return(speciesname,value)
+    
+speciesnumber(iris,"Species","setosa")
+ 
+
+#return a dataframe for Sepal.Width greater than value specified by function user
+def sepalwidth(filename,value):
+    sepal=filename[filename['Sepal.Width']>value]
+    return(sepal)
+    
+sepalwidth(iris,3.5)
+
+#write data for species to comma delimited file with species name as file name
+def tocsv(x,y):
+    str1 = ".csv"
+    species=x[x['Species']==y]
+    y+=str1
+    return (species.to_csv(y))
+
+tocsv(iris,"setosa")
+ 
