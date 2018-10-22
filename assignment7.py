@@ -8,19 +8,13 @@ Created on Tue Oct 16 15:59:55 2018
 exercise #7
 """
 
-#1 - print a dataframe odd rows
 import pandas as pd
 import numpy as np
-def odds(df):
-    counter=0
-    for i in range(0, len(df)):
-        if(counter%2 != 0):
-            print df.iloc[i]
-        counter += 1
-            
-test=pd.DataFrame(np.random.rand(10,4), columns=list('ABCD'))
-odds(test)
 
+#1 - print a dataframe odd rows
+def odds(df):
+    return (df[1: :2])
+            
 #2
 #number of observations for a given species
 def species_counts(df, species):
