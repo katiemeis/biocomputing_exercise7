@@ -1,0 +1,42 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Oct 23 13:21:11 2018
+
+@author: MeganHartle
+"""
+
+import numpy
+import pandas
+
+data = pandas.read_csv("iris.csv")
+
+#Answer to #1
+
+def odd_columns(file):
+    return(file[1::2])
+    
+print(odd_columns(data))
+
+#Answer to #2 part 1
+
+def number_observations(file):
+    return(file['Species'].value_counts())
+    
+print(number_observations(data))
+
+#Answer to #2 part 2
+
+def sepal_width(min_width):
+    return(data[data['Sepal.Width'] > min_width].groupby('Species')['Sepal.Width'].count())
+
+print(sepal_width(3.5))
+
+#Answer to #2 part 3
+
+def species_file(file, species):
+	data = file[file.Species == species]
+	new_file = species + "_file.csv"
+	return(data.to_csv(new_file)) 
+
+print(species_file(data, 'virginica'))
