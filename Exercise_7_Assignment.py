@@ -1,6 +1,6 @@
 #I put importing pandas and reading the file first and outside of any of the functions for the sake of not being repititious
 #I also made all of my functions ask for any necessary user input on the command line, except for the first one since it
-#specified that it should be passed as an argument
+#specified that it should be passed as an argument.  I personally simply like the clarity of the command line specifying what to input
 import pandas as pd
 iris = pd.read_csv("iris.csv")
 
